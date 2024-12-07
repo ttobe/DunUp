@@ -1,4 +1,4 @@
-package com.dunup.dunup;
+package com.dunup;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

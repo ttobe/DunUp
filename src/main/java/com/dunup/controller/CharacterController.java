@@ -1,31 +1,25 @@
-package com.dunup.controller.controller;
+package com.dunup.controller;
 
+import com.dunup.dto.CharacterSearchResponseDto;
+import com.dunup.service.CharacterService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @RestController
 public class CharacterController {
 
-  // 캐릭터 검색 API
+  private final CharacterService characterService;
+
+  public CharacterController(CharacterService characterService) {
+    this.characterService = characterService;
+  }
+
   @GetMapping("/character/search")
-  public Map<String, Object> searchCharacter(
-      @RequestParam String serverId,
-      @RequestParam String characterName) {
-
-    // 임시 데이터로 검색 결과 생성
-    Map<String, Object> characterData = new HashMap<>();
-    characterData.put("serverId", serverId);
-    characterData.put("characterName", characterName);
-    characterData.put("characterId", "abc12345"); // 샘플 ID
-    characterData.put("level", 100);
-    characterData.put("job", "Sword Master");
-    characterData.put("guild", "Adventurer Guild");
-
-    // 응답 데이터 반환
-    return characterData;
+  public CharacterSearchResponseDto searchCharacter(
+      @RequestParam("serverId") String serverId,
+      @RequestParam("characterName") String characterName
+  ) {
+    return characterService.searchCharacter(serverId, characterName);
   }
 }
