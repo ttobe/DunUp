@@ -1,12 +1,11 @@
 package com.dunup.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Setter
-@Getter
-public class CharacterResponseDto {
-  // Getters and Setters
+import java.util.List;
+
+@Data
+public class CharacterDetailResponseDto {
   private String serverId;
   private String characterId;
   private String characterName;
@@ -16,5 +15,8 @@ public class CharacterResponseDto {
   private String jobName;
   private String jobGrowName;
   private int fame;
-
+  private String adventureName;
+  private String guildId;
+  private String guildName;
+  private List<EquipmentDto> equipment;
 }

@@ -1,5 +1,6 @@
 package com.dunup.controller;
 
+import com.dunup.dto.CharacterDetailResponseDto;
 import com.dunup.dto.CharacterSearchResponseDto;
 import com.dunup.service.CharacterService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,5 +22,14 @@ public class CharacterController {
       @RequestParam("characterName") String characterName
   ) {
     return characterService.searchCharacter(serverId, characterName);
+  }
+
+  // 캐릭터 상세 조회 메서드
+  @GetMapping("/character/detail")
+  public CharacterDetailResponseDto getCharacterDetails(
+      @RequestParam("serverId") String serverId,
+      @RequestParam("characterId") String characterId
+  ) {
+    return characterService.getCharacterDetails(serverId, characterId);
   }
 }

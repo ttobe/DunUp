@@ -1,16 +1,13 @@
 package com.dunup.dto;
 
 import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 public class CharacterSearchResponseDto {
+  // Getters and Setters
   private List<CharacterResponseDto> rows;
 
-  // Getters and Setters
-  public List<CharacterResponseDto> getRows() {
-    return rows;
-  }
-
-  public void setRows(List<CharacterResponseDto> rows) {
-    this.rows = rows;
-  }
 }
