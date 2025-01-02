@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Search Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Character Search Results</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Server Name</th>
+            <th>Character Name</th>
+            <th>Level</th>
+            <th>Job</th>
+            <th>Job Grow</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Loop through the character list -->
+        <tr th:each="character : ${characters}">
+            <td th:text="${character.serverName}"></td>
+            <td th:text="${character.characterName}"></td>
+            <td th:text="${character.level}"></td>
+            <td th:text="${character.jobName}"></td>
+            <td th:text="${character.jobGrowName}"></td>
+            <td>
+                <form th:action="@{/character/detail}" method="get" style="margin: 0;">
+                    <input type="hidden" name="serverId" th:value="${character.serverId}"/>
+                    <input type="hidden" name="characterId" th:value="${character.characterId}"/>
+                    <button type="submit">View Details</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
