@@ -1,4 +1,4 @@
-package com.dunup.dunup;
+package com.dunup;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
