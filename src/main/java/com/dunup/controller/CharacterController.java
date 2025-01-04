@@ -38,7 +38,6 @@ public class CharacterController {
 	) {
 		CharacterDetailResponseDto detailResponse = characterService.getCharacterDetails(serverId, characterId);
 
-		// Add character details to the model
 		model.addAttribute("characterDetails", detailResponse);
 
 		return "characterDetail";
