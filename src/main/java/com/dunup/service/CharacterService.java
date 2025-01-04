@@ -31,7 +31,7 @@ public class CharacterService {
 
 	// 서버 이름을 매핑해주는 메서드
 	private String getServerName(String serverId) {
-		return SERVER_NAME_MAP.getOrDefault(serverId, serverId); // 기본적으로 serverId 반환
+		return SERVER_NAME_MAP.getOrDefault(serverId, serverId);
 	}
 
 	// WebClient 인스턴스를 생성자 주입 방식으로 주입
