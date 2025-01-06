@@ -9,14 +9,13 @@ import com.dunup.dto.CharacterDetailResponseDto;
 import com.dunup.dto.CharacterSearchResponseDto;
 import com.dunup.service.CharacterService;
 
+import lombok.RequiredArgsConstructor;
+
 @Controller
+@RequiredArgsConstructor
 public class CharacterController {
 
 	private final CharacterService characterService;
-
-	public CharacterController(CharacterService characterService) {
-		this.characterService = characterService;
-	}
 
 	@GetMapping("/character/search")
 	public String searchCharacter(
