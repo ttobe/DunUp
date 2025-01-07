@@ -1,12 +1,10 @@
 package com.dunup.dto;
 
-import java.util.List;
-
 import lombok.Data;
 
 @Data
 public class MaxEnchantDto {
 	private String category;            // 카테고리
 	private String name;
-	private List<EnchantDto> Enchants;
+	private EnchantDto Enchant;
 }

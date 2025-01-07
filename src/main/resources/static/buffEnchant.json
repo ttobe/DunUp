@@ -2,599 +2,812 @@
   {
     "category": "무기",
     "name": "뒤쫓는 자 제논",
-    "stats": {
-      "힘": 110,
-      "지능": 110,
-      "체력": 110,
-      "정신력": 110,
-      "캐스트속도": "7%",
-      "명성": 210
-    },
-    "reinforceSkill": []
+    "enchant": {
+      "status": [
+        {
+          "name": "힘",
+          "value": 110
+        },
+        {
+          "name": "지능",
+          "value": 110
+        },
+        {
+          "name": "체력",
+          "value": 110
+        },
+        {
+          "name": "정신력",
+          "value": 110
+        },
+        {
+          "name": "명성",
+          "value": 210
+        },
+        {
+          "name": "캐스트속도",
+          "value": "7%"
+        }
+      ],
+      "reinforceSkill": []
+    }
   },
   {
     "category": "머리어깨",
     "name": "코드네임 게이볼그",
-    "stats": {
-      "힘": 110,
-      "지능": 110,
-      "체력": 110,
-      "정신력": 110,
-      "명성": 210
-    },
-    "reinforceSkill": [
-      {
-        "jobId": null,
-        "jobName": "마법사(여)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "퍼페티어",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "프리스트(남)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "수호의 은총",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "프리스트(여)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "계시 : 아리아",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "아처",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "센세이션",
-            "value": 3
-          }
-        ]
-      }
-    ]
+    "enchant": {
+      "status": [
+        {
+          "name": "힘",
+          "value": 110
+        },
+        {
+          "name": "지능",
+          "value": 110
+        },
+        {
+          "name": "체력",
+          "value": 110
+        },
+        {
+          "name": "정신력",
+          "value": 110
+        },
+        {
+          "name": "명성",
+          "value": 210
+        }
+      ],
+      "reinforceSkill": [
+        {
+          "jobId": null,
+          "jobName": "마법사(여)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "퍼페티어",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "프리스트(남)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "수호의 은총",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "프리스트(여)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "계시 : 아리아",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "아처",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "센세이션",
+              "value": 3
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "category": "상의",
     "name": "블루호크 선장 버디",
-    "stats": {
-      "힘": 110,
-      "지능": 110,
-      "체력": 110,
-      "정신력": 110,
-      "명성": 210
-    },
-    "reinforceSkill": [
-      {
-        "jobId": null,
-        "jobName": "마법사(여)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "퍼페티어",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "프리스트(남)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "수호의 은총",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "프리스트(여)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "계시 : 아리아",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "아처",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "센세이션",
-            "value": 3
-          }
-        ]
-      }
-    ]
+    "enchant": {
+      "status": [
+        {
+          "name": "힘",
+          "value": 110
+        },
+        {
+          "name": "지능",
+          "value": 110
+        },
+        {
+          "name": "체력",
+          "value": 110
+        },
+        {
+          "name": "정신력",
+          "value": 110
+        },
+        {
+          "name": "명성",
+          "value": 210
+        }
+      ],
+      "reinforceSkill": [
+        {
+          "jobId": null,
+          "jobName": "마법사(여)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "퍼페티어",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "프리스트(남)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "수호의 은총",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "프리스트(여)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "계시 : 아리아",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "아처",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "센세이션",
+              "value": 3
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "category": "하의",
     "name": "안개의 감시자 브림",
-    "stats": {
-      "힘": 110,
-      "지능": 110,
-      "체력": 110,
-      "정신력": 110,
-      "명성": 210
-    },
-    "reinforceSkill": [
-      {
-        "jobId": null,
-        "jobName": "마법사(여)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "퍼페티어",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "프리스트(남)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "수호의 은총",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "프리스트(여)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "계시 : 아리아",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "아처",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "센세이션",
-            "value": 3
-          }
-        ]
-      }
-    ]
+    "enchant": {
+      "status": [
+        {
+          "name": "힘",
+          "value": 110
+        },
+        {
+          "name": "지능",
+          "value": 110
+        },
+        {
+          "name": "체력",
+          "value": 110
+        },
+        {
+          "name": "정신력",
+          "value": 110
+        },
+        {
+          "name": "명성",
+          "value": 210
+        }
+      ],
+      "reinforceSkill": [
+        {
+          "jobId": null,
+          "jobName": "마법사(여)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "퍼페티어",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "프리스트(남)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "수호의 은총",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "프리스트(여)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "계시 : 아리아",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "아처",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "센세이션",
+              "value": 3
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "category": "벨트",
     "name": "부패하는 사룡 스피라찌",
-    "stats": {
-      "힘": 100,
-      "지능": 100,
-      "체력": 100,
-      "정신력": 100,
-      "물리 크리티컬 히트": "7%",
-      "마법 크리티컬 히트": "7%",
-      "명성": 210
-    },
-    "reinforceSkill": [
-      {
-        "jobId": null,
-        "jobName": "마법사(여)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "소악마",
-            "value": 2
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "프리스트(남)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "신념의 오라",
-            "value": 2
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "프리스트(여)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "신실한 열정",
-            "value": 2
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "아처",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "유명세",
-            "value": 2
-          }
-        ]
-      }
-    ]
+    "enchant": {
+      "status": [
+        {
+          "name": "힘",
+          "value": 100
+        },
+        {
+          "name": "지능",
+          "value": 100
+        },
+        {
+          "name": "체력",
+          "value": 100
+        },
+        {
+          "name": "정신력",
+          "value": 100
+        },
+        {
+          "name": "명성",
+          "value": 210
+        },
+        {
+          "name": "물리 크리티컬 히트",
+          "value": "7%"
+        },
+        {
+          "name": "마법 크리티컬 히트",
+          "value": "7%"
+        }
+      ],
+      "reinforceSkill": [
+        {
+          "jobId": null,
+          "jobName": "마법사(여)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "소악마",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "프리스트(남)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "신념의 오라",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "프리스트(여)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "신실한 열정",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "아처",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "유명세",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "category": "신발",
     "name": "안개의 사제 클라디스",
-    "stats": {
-      "힘": 100,
-      "지능": 100,
-      "체력": 100,
-      "정신력": 100,
-      "명성": 210
-    },
-    "reinforceSkill": [
-      {
-        "jobId": null,
-        "jobName": "마법사(여)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "퍼페티어",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "프리스트(남)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "수호의 은총",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "프리스트(여)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "계시 : 아리아",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "아처",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "센세이션",
-            "value": 3
-          }
-        ]
-      }
-    ]
+    "enchant": {
+      "status": [
+        {
+          "name": "힘",
+          "value": 100
+        },
+        {
+          "name": "지능",
+          "value": 100
+        },
+        {
+          "name": "체력",
+          "value": 100
+        },
+        {
+          "name": "정신력",
+          "value": 100
+        },
+        {
+          "name": "명성",
+          "value": 210
+        }
+      ],
+      "reinforceSkill": [
+        {
+          "jobId": null,
+          "jobName": "마법사(여)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "퍼페티어",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "프리스트(남)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "수호의 은총",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "프리스트(여)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "계시 : 아리아",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "아처",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "센세이션",
+              "value": 3
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "category": "목걸이",
     "name": "무경계의 테르미누스",
-    "stats": {
-      "힘": 100,
-      "지능": 100,
-      "체력": 100,
-      "정신력": 100,
-      "명성": 210
-    },
-    "reinforceSkill": [
-      {
-        "jobId": null,
-        "jobName": "마법사(여)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "퍼페티어",
-            "value": 1
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "프리스트(남)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "수호의 은총",
-            "value": 1
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "프리스트(여)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "계시 : 아리아",
-            "value": 1
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "아처",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "센세이션",
-            "value": 1
-          }
-        ]
-      }
-    ]
+    "enchant": {
+      "status": [
+        {
+          "name": "힘",
+          "value": 100
+        },
+        {
+          "name": "지능",
+          "value": 100
+        },
+        {
+          "name": "체력",
+          "value": 100
+        },
+        {
+          "name": "정신력",
+          "value": 100
+        },
+        {
+          "name": "명성",
+          "value": 210
+        }
+      ],
+      "reinforceSkill": [
+        {
+          "jobId": null,
+          "jobName": "마법사(여)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "퍼페티어",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "프리스트(남)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "수호의 은총",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "프리스트(여)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "계시 : 아리아",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "아처",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "센세이션",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "category": "팔찌",
     "name": "평온한 로절린드",
-    "stats": {
-      "힘": 100,
-      "지능": 100,
-      "체력": 100,
-      "정신력": 100,
-      "명성": 210
-    },
-    "reinforceSkill": [
-      {
-        "jobId": null,
-        "jobName": "마법사(여)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "퍼페티어",
-            "value": 1
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "프리스트(남)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "수호의 은총",
-            "value": 1
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "프리스트(여)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "계시 : 아리아",
-            "value": 1
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "아처",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "센세이션",
-            "value": 1
-          }
-        ]
-      }
-    ]
+    "enchant": {
+      "status": [
+        {
+          "name": "힘",
+          "value": 100
+        },
+        {
+          "name": "지능",
+          "value": 100
+        },
+        {
+          "name": "체력",
+          "value": 100
+        },
+        {
+          "name": "정신력",
+          "value": 100
+        },
+        {
+          "name": "명성",
+          "value": 210
+        }
+      ],
+      "reinforceSkill": [
+        {
+          "jobId": null,
+          "jobName": "마법사(여)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "퍼페티어",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "프리스트(남)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "수호의 은총",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "프리스트(여)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "계시 : 아리아",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "아처",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "센세이션",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "category": "반지",
     "name": "빛나는 다이앤",
-    "stats": {
-      "힘": 100,
-      "지능": 100,
-      "체력": 100,
-      "정신력": 100,
-      "명성": 210
-    },
-    "reinforceSkill": [
-      {
-        "jobId": null,
-        "jobName": "마법사(여)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "퍼페티어",
-            "value": 1
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "프리스트(남)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "수호의 은총",
-            "value": 1
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "프리스트(여)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "계시 : 아리아",
-            "value": 1
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "아처",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "센세이션",
-            "value": 1
-          }
-        ]
-      }
-    ]
+    "enchant": {
+      "status": [
+        {
+          "name": "힘",
+          "value": 100
+        },
+        {
+          "name": "지능",
+          "value": 100
+        },
+        {
+          "name": "체력",
+          "value": 100
+        },
+        {
+          "name": "정신력",
+          "value": 100
+        },
+        {
+          "name": "명성",
+          "value": 210
+        }
+      ],
+      "reinforceSkill": [
+        {
+          "jobId": null,
+          "jobName": "마법사(여)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "퍼페티어",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "프리스트(남)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "수호의 은총",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "프리스트(여)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "계시 : 아리아",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "아처",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "센세이션",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "category": "보조장비",
     "name": "기억의 도서관지기",
-    "stats": {
-      "힘": 100,
-      "지능": 100,
-      "체력": 100,
-      "정신력": 100,
-      "명성": 210
-    },
-    "reinforceSkill": [
-      {
-        "jobId": null,
-        "jobName": "마법사(여)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "퍼페티어",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "프리스트(남)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "수호의 은총",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "프리스트(여)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "계시 : 아리아",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "아처",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "센세이션",
-            "value": 3
-          }
-        ]
-      }
-    ]
+    "enchant": {
+      "status": [
+        {
+          "name": "힘",
+          "value": 100
+        },
+        {
+          "name": "지능",
+          "value": 100
+        },
+        {
+          "name": "체력",
+          "value": 100
+        },
+        {
+          "name": "정신력",
+          "value": 100
+        },
+        {
+          "name": "명성",
+          "value": 210
+        }
+      ],
+      "reinforceSkill": [
+        {
+          "jobId": null,
+          "jobName": "마법사(여)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "퍼페티어",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "프리스트(남)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "수호의 은총",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "프리스트(여)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "계시 : 아리아",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "아처",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "센세이션",
+              "value": 3
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "category": "귀걸이",
     "name": "부조화의 로페즈",
-    "stats": {
-      "힘": 200,
-      "지능": 200,
-      "체력": 200,
-      "정신력": 200,
-      "명성": 210
-    },
-    "reinforceSkill": []
+    "enchant": {
+      "status": [
+        {
+          "name": "힘",
+          "value": 200
+        },
+        {
+          "name": "지능",
+          "value": 200
+        },
+        {
+          "name": "체력",
+          "value": 200
+        },
+        {
+          "name": "정신력",
+          "value": 200
+        },
+        {
+          "name": "명성",
+          "value": 210
+        }
+      ],
+      "reinforceSkill": []
+    }
   },
   {
     "category": "마법석",
     "name": "흰 구름 감시자 라르고",
-    "stats": {
-      "힘": 100,
-      "지능": 100,
-      "체력": 100,
-      "정신력": 100,
-      "명성": 210
-    },
-    "reinforceSkill": [
-      {
-        "jobId": null,
-        "jobName": "마법사(여)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "퍼페티어",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "프리스트(남)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "수호의 은총",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "프리스트(여)",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "계시 : 아리아",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "jobId": null,
-        "jobName": "아처",
-        "skills": [
-          {
-            "skillId": null,
-            "name": "센세이션",
-            "value": 3
-          }
-        ]
-      }
-    ]
+    "enchant": {
+      "status": [
+        {
+          "name": "힘",
+          "value": 100
+        },
+        {
+          "name": "지능",
+          "value": 100
+        },
+        {
+          "name": "체력",
+          "value": 100
+        },
+        {
+          "name": "정신력",
+          "value": 100
+        },
+        {
+          "name": "명성",
+          "value": 210
+        }
+      ],
+      "reinforceSkill": [
+        {
+          "jobId": null,
+          "jobName": "마법사(여)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "퍼페티어",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "프리스트(남)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "수호의 은총",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "프리스트(여)",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "계시 : 아리아",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "jobId": null,
+          "jobName": "아처",
+          "skills": [
+            {
+              "skillId": null,
+              "name": "센세이션",
+              "value": 3
+            }
+          ]
+        }
+      ]
+    }
   }
 ]
 
