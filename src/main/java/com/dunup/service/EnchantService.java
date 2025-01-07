@@ -1,7 +1,8 @@
 package com.dunup.service;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
@@ -19,73 +20,89 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class EnchantService {
 
 	@Autowired
-	private ObjectMapper objectMapper;  // ObjectMapper 자동 주입
+	private ObjectMapper objectMapper;  // ObjectMapper를 자동으로 주입받음.
 
-	private List<MaxEnchantDto> enchantData;  // MaxEnchantDto 리스트를 저장
+	private Map<String, MaxEnchantDto> enchantDataMap; // category를 key로 사용하는 Map
 
-	// JSON 데이터를 한 번 로딩하여 enchantData에 저장
-	public List<MaxEnchantDto> getEnchantData() throws IOException {
-		if (enchantData == null) {
+	// JSON 데이터를 한 번 로딩하여 enchantDataMap에 저장
+	public Map<String, MaxEnchantDto> getEnchantData() throws IOException {
+		if (enchantDataMap == null) {
 			loadEnchantData(); // 처음 로딩 시 한 번만 로드
 		}
-		return enchantData; // 로딩된 데이터 반환
+		return enchantDataMap; // 로딩된 데이터 반환
 	}
 
-	// JSON 파일을 읽어와서 enchantData에 저장
+	// JSON 파일을 읽어와서 enchantDataMap에 저장
 	private void loadEnchantData() throws IOException {
 		// resources/static/buffEnchant.json 파일을 읽어옴
 		Resource resource = new ClassPathResource("static/buffEnchant.json");
 
-		// JSON 파일을 List<MaxEnchantDto> 형태로 변환하여 필드에 저장
-		enchantData = objectMapper.readValue(resource.getFile(),
-			objectMapper.getTypeFactory().constructCollectionType(List.class, MaxEnchantDto.class));
+		// JSON 파일을 Map으로 변환하여 필드에 저장
+		MaxEnchantDto[] maxEnchantArray = objectMapper.readValue(resource.getFile(), MaxEnchantDto[].class);
+
+		enchantDataMap = new HashMap<>();
+
+		// category를 key로, MaxEnchantDto를 value로 넣어줍니다.
+		for (MaxEnchantDto enchant : maxEnchantArray) {
+			enchantDataMap.put(enchant.getCategory(), enchant);
+		}
 	}
 
 	// category와 slotName을 기준으로 enchantData에서 MaxEnchantDto를 찾는 메서드
 	public MaxEnchantDto findEnchantByCategory(String category) throws IOException {
-		for (MaxEnchantDto maxEnchantDto : this.getEnchantData()) {
-			if (maxEnchantDto.getCategory().equals(category)) {
-				return maxEnchantDto;
-			}
-		}
-		return null; // 찾지 못한 경우 null 반환
+		// category를 기준으로 MaxEnchantDto를 찾는 Map에서 직접 검색
+		return getEnchantData().get(category); // Map에서 직접 가져옴
 	}
 
 	// CharacterDetailResponseDto의 equipment에서 Enchant 비교
 	public String compareEnchantDetails(CharacterDetailResponseDto detailResponse) throws IOException {
 		StringBuilder result = new StringBuilder();
 
+		// equipment 목록에서 하나씩 확인
 		for (EquipmentDto equipment : detailResponse.getEquipment()) {
 			EnchantDto enchant = equipment.getEnchant(); // EnchantDto
 
-			// TODO: 직업 별 나누기
-			// 일단 지능 기준으로만
+			// enchant가 null이 아니면 비교 시작
 			if (enchant != null) {
-				// 해당 장비자리의 최대 마부 찾기
-				// 0 힘 1 지능 2 체력 3 정신력 4 명성
-				System.out.println(equipment.getSlotName());
-				MaxEnchantDto maxEnchantDto = findEnchantByCategory(equipment.getSlotName());
+				// 해당 장비 자리의 최대 마부 찾기
+				// category는 slotName을 기준으로 가져오기
+				String slotName = equipment.getSlotName();
+				MaxEnchantDto maxEnchantDto = findEnchantByCategory(slotName);
+
+				// 최대 마부를 찾았다면
 				if (maxEnchantDto != null) {
-					StatusDto maxStatus = maxEnchantDto.getEnchant().getStatus().get(1);
-					String maxEnchantIntelligence = maxStatus.getValue();
+					// 최대 마부의 지능 값
+					StatusDto maxStatus = findStatusByName(maxEnchantDto.getEnchant(), "지능");
+					String maxEnchantIntelligence = maxStatus != null ? maxStatus.getValue() : "0";
 					System.out.println("최대 마부 지능 값: " + maxEnchantIntelligence);
-					StatusDto nowStatus = enchant.getStatus().get(1);
-					String nowStatusIntelligence = nowStatus.getValue();
+
+					// 현재 마부의 지능 값
+					StatusDto nowStatus = findStatusByName(enchant, "지능");
+					String nowStatusIntelligence = nowStatus != null ? nowStatus.getValue() : "0";
 					System.out.println("현재 마부 지능 값: " + nowStatusIntelligence);
 
+					// 비교 후, 값이 낮으면 결과에 추가
 					if (Integer.parseInt(nowStatusIntelligence) < Integer.parseInt(maxEnchantIntelligence)) {
 						result.append(equipment.getSlotName())
 							.append(", ");
 					} else {
 						System.out.println("마부가 낮지 않습니다..");
 					}
-
 				}
-
 			}
 		}
 
 		return result.toString();
+	}
+
+	// StatusDto에서 특정 name을 기준으로 StatusDto를 찾는 유틸리티 메서드
+	private StatusDto findStatusByName(EnchantDto enchant, String name) {
+		for (StatusDto status : enchant.getStatus()) {
+			if (status.getName().equals(name)) {
+				return status;
+			}
+		}
+		return null; // 해당하는 Status가 없으면 null 반환
 	}
 
 }

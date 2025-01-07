@@ -1,7 +1,7 @@
 package com.dunup.controller;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +18,7 @@ public class EnchantController {
 
 	// GET 요청이 "/enchantData"로 들어오면 enchantData를 반환
 	@GetMapping("/enchantData")
-	public List<MaxEnchantDto> getEnchantData() throws IOException {
+	public Map<String, MaxEnchantDto> getEnchantData() throws IOException {
 		return enchantService.getEnchantData(); // EnchantService에서 데이터를 반환
 	}
 }
