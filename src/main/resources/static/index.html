@@ -1,63 +1,78 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>가속도 센서 데모</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 20px;
-        }
-
-        #sensorData {
-            font-size: 18px;
-            margin-top: 20px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DunUp</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f9f9f9;
+      font-family: Arial, sans-serif;
+    }
+    .search-container {
+      text-align: center;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .search-container h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .search-container form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .search-container select, .search-container input[type="text"] {
+      width: 100%;
+      max-width: 400px;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .search-container button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .search-container button:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
 <body>
-<h1>가속도 센서 데모</h1>
-<button id="requestPermission">센서 권한 요청</button>
-<div id="sensorData">
-    <p>X: <span id="xValue">0</span></p>
-    <p>Y: <span id="yValue">0</span></p>
-    <p>Z: <span id="zValue">0</span></p>
+<div class="search-container">
+  <h1>Character Search</h1>
+  <form action="/character/search" method="get">
+    <!-- Server Selection -->
+    <select name="serverId">
+      <option value="all" selected>전체</option>
+      <option value="cain">카인</option>
+      <option value="diregie">디레지에</option>
+      <option value="siroco">시로코</option>
+      <option value="prey">프레이</option>
+      <option value="casillas">카시야스</option>
+      <option value="hilder">힐더</option>
+      <option value="anton">안톤</option>
+      <option value="bakal">바칼</option>
+    </select>
+    <!-- Character Name Input -->
+    <input type="text" name="characterName" placeholder="Enter Character Name" required />
+    <!-- Submit Button -->
+    <button type="submit">Search</button>
+  </form>
 </div>
-
-<script>
-    const permissionButton = document.getElementById('requestPermission');
-    const xValue = document.getElementById('xValue');
-    const yValue = document.getElementById('yValue');
-    const zValue = document.getElementById('zValue');
-
-    function handleMotion(event) {
-        const {x, y, z} = event.accelerationIncludingGravity;
-        xValue.textContent = x ? x.toFixed(2) : '0';
-        yValue.textContent = y ? y.toFixed(2) : '0';
-        zValue.textContent = z ? z.toFixed(2) : '0';
-    }
-
-    function requestPermission() {
-        if (typeof DeviceMotionEvent.requestPermission === 'function') {
-            DeviceMotionEvent.requestPermission()
-                .then(state => {
-                    if (state === 'granted') {
-                        window.addEventListener('devicemotion', handleMotion);
-                        permissionButton.style.display = 'none';
-                    } else {
-                        alert('센서 권한이 거부되었습니다. 브라우저를 재시작하고 다시 시도해주세요.');
-                    }
-                })
-                .catch(console.error);
-        } else {
-            window.addEventListener('devicemotion', handleMotion);
-            permissionButton.style.display = 'none';
-        }
-    }
-
-    permissionButton.addEventListener('click', requestPermission);
-</script>
 </body>
 </html>
