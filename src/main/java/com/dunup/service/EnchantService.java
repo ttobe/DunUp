@@ -57,7 +57,7 @@ public class EnchantService {
 	// CharacterDetailResponseDto의 equipment에서 Enchant 비교
 	public String compareEnchantDetails(CharacterDetailResponseDto detailResponse) throws IOException {
 		StringBuilder result = new StringBuilder();
-
+		// TODO: 캐릭터 직업 별로 해야함
 		// equipment 목록에서 하나씩 확인
 		for (EquipmentDto equipment : detailResponse.getEquipment()) {
 			EnchantDto enchant = equipment.getEnchant(); // EnchantDto
@@ -65,11 +65,11 @@ public class EnchantService {
 			// enchant가 null이 아니면 비교 시작
 			if (enchant != null) {
 				// 해당 장비 자리의 최대 마부 찾기
-				// category는 slotName을 기준으로 가져오기
 				String slotName = equipment.getSlotName();
 				MaxEnchantDto maxEnchantDto = findEnchantByCategory(slotName);
 
 				// 최대 마부를 찾았다면
+				// TODO: 단순히 지금은 지능 값만 비교 직업 별로 해야함
 				if (maxEnchantDto != null) {
 					// 최대 마부의 지능 값
 					StatusDto maxStatus = findStatusByName(maxEnchantDto.getEnchant(), "지능");
@@ -82,6 +82,7 @@ public class EnchantService {
 					System.out.println("현재 마부 지능 값: " + nowStatusIntelligence);
 
 					// 비교 후, 값이 낮으면 결과에 추가
+					// TODO: 여기서 경매장 접근 추가하기
 					if (Integer.parseInt(nowStatusIntelligence) < Integer.parseInt(maxEnchantIntelligence)) {
 						result.append(equipment.getSlotName())
 							.append(", ");
