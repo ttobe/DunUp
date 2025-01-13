@@ -122,6 +122,7 @@ public class EnchantService {
 				if (compareResult.getStatusDifference() > 0 || compareResult.getSkillDifference() > 0) {
 					results.add(compareResult);
 				}
+				// TODO: 증가 폭 / 해당 경매장 가격 해서 마지막에 추가하기 이름도!
 			}
 		}
 
