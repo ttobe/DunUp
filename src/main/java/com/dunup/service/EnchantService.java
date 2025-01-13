@@ -1,7 +1,9 @@
 package com.dunup.service;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +12,10 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
 import com.dunup.dto.CharacterDetailResponseDto;
+import com.dunup.dto.EnchantComparisonResult;
 import com.dunup.dto.EnchantDto;
 import com.dunup.dto.EquipmentDto;
 import com.dunup.dto.MaxEnchantDto;
-import com.dunup.dto.StatusDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
@@ -49,61 +51,90 @@ public class EnchantService {
 	}
 
 	// category와 slotName을 기준으로 enchantData에서 MaxEnchantDto를 찾는 메서드
-	public MaxEnchantDto findEnchantByCategory(String category) throws IOException {
+	private MaxEnchantDto findEnchantByCategory(String category) throws IOException {
 		// category를 기준으로 MaxEnchantDto를 찾는 Map에서 직접 검색
 		return getEnchantData().get(category); // Map에서 직접 가져옴
 	}
 
-	// CharacterDetailResponseDto의 equipment에서 Enchant 비교
-	public String compareEnchantDetails(CharacterDetailResponseDto detailResponse) throws IOException {
-		StringBuilder result = new StringBuilder();
-		// TODO: 캐릭터 직업 별로 해야함
-		// equipment 목록에서 하나씩 확인
+	private String compareJob(CharacterDetailResponseDto detailResponse) throws IOException {
+		if (isBuffJob(detailResponse.getJobGrowName())) {
+			return buffCompare(detailResponse);
+		} else {
+			return dealCompare(detailResponse);
+		}
+	}
+
+	private boolean isBuffJob(String jobName) {
+		return jobName.contains("크루세이더") ||
+			jobName.contains("인챈트리스") ||
+			jobName.contains("뮤즈");
+	}
+
+	private String getStatusValue(EnchantDto enchant) {
+		if (enchant.getStatus() == null || enchant.getStatus().get(0) == null)
+			return "0";
+		return enchant.getStatus().get(0).getValue();
+	}
+
+	private int getSkillValue(EnchantDto enchant) {
+		if (enchant.getReinforceSkill() == null)
+			return 0;
+
+		if (enchant.getReinforceSkill().isEmpty())
+			return 0;
+
+		return enchant.getReinforceSkill()
+			.get(0)
+			.getSkills()
+			.get(0)
+			.getValue();
+	}
+
+	private EnchantComparisonResult compareEnchants(
+		EnchantDto maxEnchantDto, EnchantDto currentEnchant, EquipmentDto equipment) {
+
+		String maxStatusValue = getStatusValue(maxEnchantDto);
+		String currentStatusValue = getStatusValue(currentEnchant);
+		int maxSkillValue = getSkillValue(maxEnchantDto);
+		int currentSkillValue = getSkillValue(currentEnchant);
+
+		int statusDifference = Integer.parseInt(maxStatusValue) - Integer.parseInt(currentStatusValue);
+		int skillDifference = maxSkillValue - currentSkillValue;
+
+		EnchantComparisonResult result = new EnchantComparisonResult();
+		result.setSlotName(equipment.getSlotName());
+		result.setStatusDifference(statusDifference);
+		result.setSkillDifference(skillDifference);
+
+		return result;
+	}
+
+	private String buffCompare(CharacterDetailResponseDto detailResponse) throws IOException {
+		List<EnchantComparisonResult> results = new ArrayList<>();
 		for (EquipmentDto equipment : detailResponse.getEquipment()) {
-			EnchantDto enchant = equipment.getEnchant(); // EnchantDto
-
+			EnchantDto nowEnchant = equipment.getEnchant();
+			MaxEnchantDto maxEnchantDto = findEnchantByCategory(equipment.getSlotName());
 			// enchant가 null이 아니면 비교 시작
-			if (enchant != null) {
+			if (nowEnchant != null && maxEnchantDto != null) {
 				// 해당 장비 자리의 최대 마부 찾기
-				String slotName = equipment.getSlotName();
-				MaxEnchantDto maxEnchantDto = findEnchantByCategory(slotName);
-
-				// 최대 마부를 찾았다면
-				// TODO: 단순히 지금은 지능 값만 비교 직업 별로 해야함
-				if (maxEnchantDto != null) {
-					// 최대 마부의 지능 값
-					StatusDto maxStatus = findStatusByName(maxEnchantDto.getEnchant(), "지능");
-					String maxEnchantIntelligence = maxStatus != null ? maxStatus.getValue() : "0";
-					System.out.println("최대 마부 지능 값: " + maxEnchantIntelligence);
-
-					// 현재 마부의 지능 값
-					StatusDto nowStatus = findStatusByName(enchant, "지능");
-					String nowStatusIntelligence = nowStatus != null ? nowStatus.getValue() : "0";
-					System.out.println("현재 마부 지능 값: " + nowStatusIntelligence);
-
-					// 비교 후, 값이 낮으면 결과에 추가
-					// TODO: 여기서 경매장 접근 추가하기
-					if (Integer.parseInt(nowStatusIntelligence) < Integer.parseInt(maxEnchantIntelligence)) {
-						result.append(equipment.getSlotName())
-							.append(", ");
-					} else {
-						System.out.println("마부가 낮지 않습니다..");
-					}
+				EnchantComparisonResult compareResult =
+					compareEnchants(maxEnchantDto.getEnchant(), nowEnchant, equipment);
+				if (compareResult.getStatusDifference() > 0 || compareResult.getSkillDifference() > 0) {
+					results.add(compareResult);
 				}
 			}
 		}
 
-		return result.toString();
+		return results.toString();
 	}
 
-	// StatusDto에서 특정 name을 기준으로 StatusDto를 찾는 유틸리티 메서드
-	private StatusDto findStatusByName(EnchantDto enchant, String name) {
-		for (StatusDto status : enchant.getStatus()) {
-			if (status.getName().equals(name)) {
-				return status;
-			}
-		}
-		return null; // 해당하는 Status가 없으면 null 반환
+	private String dealCompare(CharacterDetailResponseDto detailResponse) {
+		return "Deal comparison for " + detailResponse.getJobName();
+	}
+
+	// CharacterDetailResponseDto의 equipment에서 Enchant 비교
+	public String compareEnchantDetails(CharacterDetailResponseDto detailResponse) throws IOException {
+		return compareJob(detailResponse);
 	}
 
 }
